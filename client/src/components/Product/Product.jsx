@@ -11,22 +11,18 @@ import Modal from '../Modal/Modal';
 function Product({ id, title, vendor, pack, price, imgPath, view }) {
   const [modalView, setModalView] = useState(false);
 
-  const handleClick = () => {
-    setModalView(!modalView);
-  }
+  const handleClick = () => setModalView(!modalView);
 
   return (
     <>
       {
         view === 'list'
-
           ?
-
+          // Таблица (list)
           <Container
             sx={{ display: 'flex', border: '1px solid black', justifyContent: 'center', alignItems: 'center' }}
             onClick={handleClick}
           >
-
             <Container sx={{ padding: '2px', display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
               <CardMedia
                 component="img"
@@ -43,7 +39,7 @@ function Product({ id, title, vendor, pack, price, imgPath, view }) {
           </Container>
 
           :
-
+          // Плитка (module)
           <Card
             sx={{ width: 250, margin: '1rem' }}
             onClick={handleClick}
@@ -73,7 +69,6 @@ function Product({ id, title, vendor, pack, price, imgPath, view }) {
         setModalView={setModalView}
         productInfo={{ id, title, vendor, pack, price, imgPath }}
       />
-
     </>
   );
 }
